@@ -1,0 +1,86 @@
+.header{
+    background: white;
+    padding: 17px 10px;
+    box-shadow: 0 5px 10px rgb(0,0,0,0.1);
+    margin: 3px 0;
+    font-family: sans-serif;
+    
+}
+
+.navigator{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.left-navigator{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-basis: 60%;
+}
+.left-navigator img{
+    width: 85px;
+}
+.left-navigator .header-form{
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(221, 217, 217);
+    padding: 3px 5px;
+    border-radius: 25px;
+    flex-basis: 70%;
+}
+
+.left-navigator .header-form input{
+    padding: 7px;
+    width: 100%;
+    outline: 0;
+    border: none;
+    background: transparent;
+}
+.left-navigator .header-form .fa{
+    cursor: pointer;
+    width: 15px;
+    color: rgb(158, 156, 156);
+}
+ul{
+    display: inline-flex;
+    gap: 20px;
+    text-decoration: none;
+    align-items: center;
+    
+}
+ul li{
+    list-style: none;
+    cursor: pointer;
+
+}
+
+.uname{
+    margin-right: 15px;
+    color: red;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.profile-pic{
+    width: 40px;
+    height: 40px;
+}
+
+.profile-pic img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.logged{
+    color: green;
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+
