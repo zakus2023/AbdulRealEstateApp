@@ -108,8 +108,14 @@ width: 95%;
     margin-bottom: 5px;
     align-items: center;
 }
-
-.display-images img{
-    width: 50px;
+.listing-img {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
     
+}
+
+.listing-img img{
+    width: 50px;
 }

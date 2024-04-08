@@ -170,7 +170,7 @@ app.get("/api/signout", (req, res, next) => {
 });
 
 //Listing creation api
-app.post("/api/listing", async (req, res, next) => {
+app.post("/api/create",verifyToken, async (req, res, next) => {
   try {
     const listing = await Listing.create(req.body);
     return res.status(201).json(listing);
