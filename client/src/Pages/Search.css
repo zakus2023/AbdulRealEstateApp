@@ -1,0 +1,81 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 10px;
+}
+.left-search{
+    flex-basis: 25%;
+    text-align: left;
+    border-right: 1px solid black;
+    padding: 20px;
+    
+}
+.right-search{
+    flex-basis: 75%;
+    text-align: left;
+    border-right: 1px solid black;
+    padding: 20px;
+}
+.search-term{
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    align-items: center;
+}
+.inner-right span{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.inner-right hr{
+    margin-top: 10px;
+}
+
+.search-term input{
+    padding: 10px;
+    width: 60%;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    outline: none;
+}
+
+.inner-left{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.checks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.check{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 5px;
+}
+
+.check input{
+    width: 16px;
+}
+
+.combo{
+display: flex;
+gap: 8px;
+align-items: center;
+}
+
+.combo select{
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+}
+.left-search button{
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    outline: none;
+}

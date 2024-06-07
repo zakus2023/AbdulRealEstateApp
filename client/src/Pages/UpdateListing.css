@@ -1,0 +1,121 @@
+.main{
+
+    text-align: center;
+        
+    }
+    
+    .main form{
+        display: flex;
+        margin: 20px 10%;
+        gap: 20px;
+        
+    }
+    
+    .listing-left{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        gap: 20px;
+    }
+    
+    
+    
+    .first-input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    }
+    
+    .first-input input{
+        padding: 15px;
+        border-radius: 5px;
+    }
+    
+    .second-input{
+        display: flex;
+        gap: 10px;
+    }
+    
+    .third-input{
+        display: flex;
+        gap: 10px;
+    }
+    .second-input input{
+        gap: 5px;
+    }
+    
+    .forth-input{
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+    
+    .nums{
+        display: flex;
+        gap: 5px;
+        text-align: left;
+        align-items: center;
+    }
+    .nums input{
+        width: 120px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .che{
+        display: flex;
+        gap: 5px;
+    }
+    
+    .che input{
+        width: 20px;
+    }
+    
+    .listing-right{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        gap: 10px;
+    }
+    
+    .listing-right p{
+        text-align: left;
+    
+    }
+    
+    .listing-right p span{
+        font-weight: bold;
+    }
+    
+    .whole-image-part{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    }
+    .choose-file{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border: 1px solid;
+        padding: 10px;
+    }
+    
+    .display-images{
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        margin-bottom: 5px;
+        align-items: center;
+    }
+    .listing-img {
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    
+    .listing-img img{
+        width: 50px;
+    }

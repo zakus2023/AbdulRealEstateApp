@@ -1,5 +1,5 @@
 .main-profile{
-    height: 100vh;
+    
     display: flex;
     justify-content: center;
     font-family: sans-serif;
@@ -61,4 +61,33 @@
 }
 .out{
     cursor: pointer;
+}
+
+.showlisting{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.innershowlisting{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.innershowlisting img{
+    width: 70px;
+}
+
+.showlisting-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.showlisting-buttons button{
+    height: 30px;
+    
 }

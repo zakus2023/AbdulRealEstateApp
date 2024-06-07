@@ -3,6 +3,7 @@ import '../Components/Banner.css'
 import arrow_icon from '../assets/arrow.png'
 import house from '../assets/houses.png'
 import hand_icon from '../assets/hand_icon.png'
+import { Link } from 'react-router-dom'
 
 export default function Banner() {
   return (
@@ -18,7 +19,9 @@ export default function Banner() {
             <p>For everyone</p>
         </div>
         <div className="banner-latest-btn">
+            <Link to='/searchListing' className='searcListing'>
             <div>Let us get started</div>
+            </Link>
             <img src={arrow_icon} alt="" />
         </div>
       </div>

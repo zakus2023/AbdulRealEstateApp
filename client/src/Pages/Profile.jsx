@@ -18,7 +18,7 @@ import {
   userDeleteFailure,
   userSignOutStart,
   userSignOutSuccess,
-  userSignOutFailure
+  userSignOutFailure,
 } from "../redux/user/userSlice";
 import { Link } from "react-router-dom";
 
@@ -33,43 +33,40 @@ export default function Profile() {
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [showListingError, setShowListingError] = useState(false);
+  const [userListings, setUserListings] = useState({});
 
-  const handleDelete = async ()=>{
-   try {
-    dispatch(userDeleteStart())
-    const res = await fetch(`/api/delete/${currentUser._id}`,
-    {
-      method:'DELETE',
-    }
-    )
-    const data = await res.json()
-    if(data.success === false){
-      dispatch(userDeleteFailure(data.message))
-      return
-    }
-    dispatch(userDeleteSuccess(data))
-
-   } catch (error) {
-    dispatch(userDeleteFailure(error.message))
-   }
-  }
-
-  const handleSignOut = async ()=>{
+  const handleDelete = async () => {
     try {
-      dispatch(userSignOutStart())
-      const res = await fetch('/api/signout')
-      const data = await res.json()
-      if(data.success === false){
-        dispatch(userSignOutFailure(data.message))
-        return
+      dispatch(userDeleteStart());
+      const res = await fetch(`/api/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(userDeleteFailure(data.message));
+        return;
       }
-      dispatch(userSignOutSuccess(data))
-
+      dispatch(userDeleteSuccess(data));
     } catch (error) {
-      dispatch(userSignOutFailure(error.message))
+      dispatch(userDeleteFailure(error.message));
     }
-    
-  }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      dispatch(userSignOutStart());
+      const res = await fetch("/api/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(userSignOutFailure(data.message));
+        return;
+      }
+      dispatch(userSignOutSuccess(data));
+    } catch (error) {
+      dispatch(userSignOutFailure(error.message));
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -127,8 +124,38 @@ export default function Profile() {
       dispatch(userUpdateSuccess(data));
       setUpdateSuccess(true);
     } catch (error) {
-      dispatch(userUpdateFailure(error.message))
-      
+      dispatch(userUpdateFailure(error.message));
+    }
+  };
+
+  const handleShowListings = async () => {
+    try {
+      const res = await fetch(`/api/userListing/${currentUser._id}`);
+      const data = await res.json();
+      if (data.success === false) {
+        setFileUploadError(data.message);
+      }
+      setUserListings(data);
+    } catch (error) {
+      setFileUploadError(error.message);
+    }
+  };
+
+  const handleDeleteListing = async (listingId) => {
+    try {
+      const res = await fetch(`/api/deleteListing/${listingId}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+      setUserListings((prev) =>
+        prev.filter((listing) => listing._id !== listingId)
+      );
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
@@ -181,17 +208,46 @@ export default function Profile() {
               onChange={handleChange}
               id="password"
             />
-            <button>{loading? "Updating Profile":"Update"}</button>
+            <button>{loading ? "Updating Profile" : "Update"}</button>
           </form>
           <div className="signout-delete">
-            <div className="delete"><p onClick={handleDelete}>Delete Account</p></div>
-            <div className="out" ><p onClick={handleSignOut}>Signout</p></div>          
+            <div className="delete">
+              <p onClick={handleDelete}>Delete Account</p>
+            </div>
+            <div className="out">
+              <p onClick={handleSignOut}>Signout</p>
+            </div>
           </div>
-          <Link to='/listing'>
-          <button>Create Listing</button>
+          <Link to="/listing">
+            <button>Create Listing</button>
           </Link>
-          <p>{error? error:""}</p>
-          <p>{updateSuccess? "Profile updated successfuly":""}</p>
+          <p>{error ? error : ""}</p>
+          <p>{updateSuccess ? "Profile updated successfuly" : ""}</p>
+          <button onClick={handleShowListings}>Show Listings</button>
+
+          {userListings && userListings.length > 0 && (
+            <div className="showlisting">
+              <h1>Your Listings</h1>
+              {userListings.map((listings) => (
+                <div key={listings.id} className="innershowlisting">
+                  <Link to={`/listingpage/${listings._id}`}>
+                    <img src={listings.imageUrls[0]} alt="" />
+                  </Link>
+                  <Link to={`/listingpage/${listings._id}`}>
+                    <p>{listings.name}</p>
+                  </Link>
+                  <div className="showlisting-buttons">
+                    <button onClick={() => handleDeleteListing(listings._id)}>
+                      Delete
+                    </button>
+                    <Link to={`/edit-listing/${listings._id}`}>
+                      <button>Edit</button>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

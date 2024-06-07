@@ -49,3 +49,9 @@
 .banner-right img{
     width: 450px;
 }
+
+.searcListing{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}

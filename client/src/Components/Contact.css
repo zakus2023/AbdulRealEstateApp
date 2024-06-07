@@ -1,0 +1,27 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.contact p{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+textarea{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.contact .link {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: green;
+}
+
+.contact p span{
+    color: green;
+}
